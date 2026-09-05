@@ -1,4 +1,4 @@
-# CS-260-Startup
+# startup
 
 [ brief description ]
 [ name ] is an interactive music application that turns a user's mood into a personalised musical environment. Instead of just recommending playlists and radios, this application creates a visual and musical experience derived from a feeling. Users can also save spaces, discover songs, and listen together at the same time.
