@@ -20,9 +20,18 @@ Imagine being able to creat your own anime-style character and experience being 
 
 ### Technologies
 I will use the required technologies as follows:
-- **HTML** : 
-- **CSS** :
-- **React** : 
-- **Service** : 
-- **DB/Login** : store user data and chocies in database
-- **WebSocket** :
+- **HTML** : three pages - one for login, one for character creation, and one for main menu.
+- **CSS** : for styling the application, making sure it looks consistent for different screen sizes, uses appropriate amount of whitespace, and colour choice/contrast.
+- **React** : used for login, character creation choices
+- **Service** : enpoints for login, choices,  
+- **DB/Login** : store user data and choices in database (character stats, login details, story choices)
+- **WebSocket** : 
+
+## Specification Deliverable
+For this deliverable I did the following.
+- [x] I completed the prerequisites for this deliverable (Git commit requirement)
+- [x] Proper use of Markdown
+- [x] A concise and compelling elevator pitch
+- [x] Description of key features
+- [x] Description of how you will use each technology
+- [x] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.++
