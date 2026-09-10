@@ -53,7 +53,8 @@ I will use the required technologies as follows:
     - submitting story choices
     - saving and retrieving game progress
     - creating and joining multiplayer games
-- **DB/Login** : store user data and choices in database (character stats, login details, story choices)
+    - third party API: https://www.7timer.info/doc.php?lang=en for game menu screen, uses user location to change page background according to weather.
+- **DB/Login** : store user data and choices in MongoDB (character stats, login details, story choices)
 - **WebSocket** : allow players in same game to receive real-time updates when another player makes a choice or when the shared story changes
 
 ## Specification Deliverable
