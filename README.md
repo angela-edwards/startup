@@ -29,7 +29,7 @@ sequenceDiagram
     user ->>Server: make choice
     Server -->>friend: user's choice
     friend ->>Server: make choice
-    Server -->>friend's choice
+    Server -->>user: friend's choice
 ```
 
 ### Key features
