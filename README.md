@@ -1,14 +1,15 @@
 # startup
 
-[ brief description ]
-[ name ] is an anime-style interactive but simple visual novel where users can create their own characters and experience stories based on their choices and character statistics. Users can customise their character, play through different scenarios and reach alternate endings, save their progress, and eventually join friends in shared story experiences.
+Divergent Threads is an interactive but simple visual novel where users can create their own characters and experience stories based on their choices and character statistics. Users can customise their character, play through different scenarios and reach alternate endings, save their progress, and eventually join friends in shared story experiences.
 
 ### Elevator Pitch
 
-Imagine being able to creat your own anime-style character and experience being the protagonist of a shonen anime. [ name ] is an interactive storytelling application where users create customisable characters and play through scenarios where their choices, morals, and stats alter the story. Players will be able to explore different outcomes, save their progress, and invite friends into shared games where everyone's decisions influence the same story. Instead of just sitting back watching an anime, [ name ] lets you become part of the story.
+Imagine being able to create your own protagonist and experience life as the main character. Divergent Threads is an interactive storytelling application where users create customisable characters and play through scenarios where their choices, morals, and stats alter the story. Players will be able to explore different outcomes, save their progress, and invite friends into shared games where everyone's decisions influence the same story. Instead of just sitting back watching a show, this game lets you become part of the story.
 
 ### Design
-[ image here ]
+![Design](IMG_8645.jpg)
+
+Here is a sequence diagram that shows how people would interact with the backend to make shared story choices.
 
 ```mermaid
 sequenceDiagram
@@ -42,12 +43,18 @@ sequenceDiagram
 
 ### Technologies
 I will use the required technologies as follows:
-- **HTML** : three pages - one for login, one for character creation, and one for main menu.
+- **HTML** : use HTML structure for login page, character creation, story pages, and game interface
 - **CSS** : for styling the application, making sure it looks consistent for different screen sizes, uses appropriate amount of whitespace, and colour choice/contrast.
 - **React** : used for login, character creation choices
-- **Service** : enpoints for login, choices,  
+- **Service** : provide backend service with endpoints for:
+    - registering and logging in users
+    - creating and retrieving characters
+    - retrieving stories and chapters
+    - submitting story choices
+    - saving and retrieving game progress
+    - creating and joining multiplayer games
 - **DB/Login** : store user data and choices in database (character stats, login details, story choices)
-- **WebSocket** : 
+- **WebSocket** : allow players in same game to receive real-time updates when another player makes a choice or when the shared story changes
 
 ## Specification Deliverable
 For this deliverable I did the following.
