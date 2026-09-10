@@ -10,6 +10,28 @@ Imagine being able to creat your own anime-style character and experience being 
 ### Design
 [ image here ]
 
+```mermaid
+sequenceDiagram
+    actor user
+    actor friend
+    user->>Server: create account
+    Server -->>user: account created
+    user ->>Server: create character
+    Server -->>user: character saved
+    user ->>Server: start story
+    Server -->>user: story + character data
+    user ->>Server: make choice
+    Server -->>user: next scenario
+    user ->> Server: save progress
+    Server -->>user: progress saved
+    friend ->>Server: join user's game
+    Server -->>friend: game data
+    user ->>Server: make choice
+    Server -->>friend: user's choice
+    friend ->>Server: make choice
+    Server -->>friend's choice
+```
+
 ### Key features
 - secure login over HTTPS
 - simple character customisation
@@ -34,4 +56,4 @@ For this deliverable I did the following.
 - [x] A concise and compelling elevator pitch
 - [x] Description of key features
 - [x] Description of how you will use each technology
-- [x] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.++
+- [x] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
