@@ -14,6 +14,60 @@
                     <h1>Create your character</h1>
                     <p>design your protagonist.</p>
                 </header>
+
+                <form id="character-form">
+                    <section>
+                        <label for="character-name">character name</label>
+                        <input
+                        type="text"
+                        id="character-name"
+                        name="characterName"
+                        placeholder="enter character name"
+                        >
+
+                        <label for="character-personality">personality</label>
+                        <select id="character-personality", name="personality">
+                            <option value="">select a personality</option>
+                            <option value="brave">brave</option>
+                            <option value="kind">kind</option>
+                            <option value="clever">clever</option>
+                            <option value="confident">confident</option>
+                            <option value="quiet">quiet</option>
+                        </select>
+                    </section>
+
+                    <section>
+                        <h2>Character Stats</h2>
+                        <label for="strength">strength</label>
+                        <input
+                        type="number"
+                        id="strength"
+                        name="strength"
+                        min="1"
+                        max="10"
+                        >
+
+                        <label for="intelligence">intelligence</label>
+                        <input
+                        type="number"
+                        id="intelligence"
+                        name="intelligence"
+                        min="1"
+                        max="10"
+                        >
+
+                        <label for="charisma">charisma</label>
+                        <input
+                        type="number"
+                        id="charisma"
+                        name="charisma"
+                        min="1"
+                        max="10"
+                        >
+                    </section>
+
+                    <button type="submit">create character!</button>
+                </form>
             </main>
         </div>
     </body>
