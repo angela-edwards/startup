@@ -80,10 +80,10 @@ For this deliverable I built out the structure of my application using HTML.
 
 - [x] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
 - [x] **HTML pages** - Four HTML pages: loading screen, login page, character creation, and main menu
-- [ ] **Proper HTML element usage** - used HTML tags
+- [x] **Proper HTML element usage** - used HTML tags
 - [x] **Links** - loading screen --> login --> character creation --> main menu (links back to all pages).
 - [x] **Text** - text describing where things will go and what each section is for.
 - [x] **3rd party API placeholder** - Placeholder for calls to 7timer.
-- [ ] **Images** - no images yet
+- [x] **Images** - added placeholder for character image
 - [x] **DB/Login** - Input box and submit button for login and signup.
 - [x] **WebSocket** - text describing where realtime communication will go (friends/multiplayer section).
