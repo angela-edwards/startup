@@ -5,9 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>Main Menu</title>
-        <!--react will control menu-->
+        <!--react will control menu
+        for now, linked separate html pages
+        but they will look like one screen-->
+        <nav>
+            <a href="story.html">main story</a>
+            <a href="character.html">my character</a>
+            <a href="friends.html">friends</a>
+            <a href="settings.html">settings</a>
+        </nav>
     </head>
 
+    <!--skeleton representation of menu screen-->
     <body>
         <div id="root">
             <main>
@@ -46,7 +55,29 @@
                 <section>
                     <h2>friends</h2>
                     <p>join friend's game or invite friends to play.</p>
+                    <button id="friends-button">friends</button>
+                </section>
+                <!--multiplayer-->
+                <section>
+                    <h2>multiplayer game</h2>
+                    <p>shared story games will appear here.</p>
+                    <!--websocket will allow players to receive real-time updates-->
+                    <p id="multiplayer-status">connection: [not connected]</p>
+                </section>
+                <!--settings-->
+                <section>
+                    <h2>settings</h2>
+                    <button id="settings-button">settings</button>
+                    <button id="logout-button">logout</button>
                 </section>
             </main>
         </div>
+        <!--js will eventually:
+        get user's location
+        request weather from backend
+        display 7time weather
+        change page bg
+        handle menu buttons
+        connect to websocket-->
     </body>
+</html>
