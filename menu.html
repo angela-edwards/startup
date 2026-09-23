@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Main Menu</title>
+        <!--react will control menu-->
+    </head>
+
+    <body>
+        <div id="root">
+            <main>
+                <header>
+                    <h1>Divergent Threads</h1>
+                    <p>Welcome back!</p>
+                    <!--user info will come from login-->
+                    <p>player: [username]</p>
+                </header>
+                <!--weather section-->
+                <section>
+                    <h2>current weather</h2>
+                    <!--7timer API will provide weather info
+                    js will determine whether weather is sunny, cloud, rainy-->
+                    <p id="weather-status">
+                        weather: [loading]
+                    </p>
+                    <!--background of page will change depending on weather-->
+                
+                </section>
+                <!--main story-->
+                <section>
+                    <h2>story</h2>
+                    <p>continue your current story or start a new one.</p>
+                    <button id="main-story-button">
+                        main story
+                    </button>
+                </section>
+                <section>
+                    <h2>character</h2>
+                    <p>view and edit your character</p>
+
+                    <button id="character-button">my character</button>
+                </section>
+                <!--friends/multiplayer-->
+                <section>
+                    <h2>friends</h2>
+                    <p>join friend's game or invite friends to play.</p>
+                </section>
+            </main>
+        </div>
+    </body>
