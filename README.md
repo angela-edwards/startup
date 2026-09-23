@@ -65,3 +65,25 @@ For this deliverable I did the following.
 - [x] Description of key features
 - [x] Description of how you will use each technology
 - [x] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
+
+## 🚀 AWS deliverable
+
+For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
+
+- [x] **Rented EC2 server** - Got a t3.nano.
+- [x] **Leased domain name** - webprogramming260.click
+- [x] **Server accessible** from my domain: [https://startup.webprogramming260.click](https://startup.webprogramming260.click)
+
+## HTML deliverable
+
+For this deliverable I built out the structure of my application using HTML.
+
+- [x] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
+- [x] **HTML pages** - Four HTML pages: loading screen, login page, character creation, and main menu
+- [ ] **Proper HTML element usage** - used HTML tags
+- [x] **Links** - loading screen --> login --> character creation --> main menu (links back to all pages).
+- [x] **Text** - text describing where things will go and what each section is for.
+- [x] **3rd party API placeholder** - Placeholder for calls to 7timer.
+- [ ] **Images** - no images yet
+- [x] **DB/Login** - Input box and submit button for login and signup.
+- [x] **WebSocket** - text describing where realtime communication will go (friends/multiplayer section).
