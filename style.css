@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
 
-    font-family: "Poppings", sans-serif;
+    font-family: "Poppins", sans-serif;
 
     background-color: #17152b;
     color: #f5f3ff;
@@ -23,6 +23,47 @@
  /* main application */
  #root {
     min-height: 100vh;
+ }
+
+ /* header */
+ 
+ .site-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 5%;
+    background-color: #17152b;
+    border-bottom: 2px solid #8068c9;
+ }
+
+ /* game title */
+ 
+ .site-title a {
+    color: #f5d98b;
+
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    text-decoration: none;
+ }
+
+ .site-nav {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+ }
+
+ .site nav a {
+    color: #f5f3ff;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+ }
+
+ .site-nav a:hover {
+    color: #f5d98b;
  }
 
  /* loading page */
@@ -173,7 +214,7 @@
         linear-gradient(135deg, #17152b, #30265c);
 }
 
-.character-containter {
+.character-container {
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
@@ -222,7 +263,7 @@
 .game-menu.sunny {
     background-image:
         linear-gradient(
-            rgba(20, 15, 50, 0.25)
+            rgba(20, 15, 50, 0.25),
             rgba(20, 15, 50, 0.45)
         ),
         url("");
@@ -363,7 +404,7 @@
 /* responsive design */
 
 @media (max-width: 768px) {
-    .menu-content{
+    .menu-content {
         grid-template-columns: 1fr;
         width: min(90%, 600px);
     }
@@ -378,6 +419,20 @@
 
     .login-containter {
         padding: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-header {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .site-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
     }
 }
 

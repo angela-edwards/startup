@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>Login</title>
-        <!--css will be added here-->
         <!--react will be connected here-->        
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet" >
@@ -17,6 +16,19 @@
     </head>
 
     <body>
+        <header class="site-header">
+            <div class="site-title">
+                <a href="index.html">Divergent Threads</a>
+            </div>
+
+            <nav class="site-nav">
+                <a href="index.html">home</a>
+                <a href="login.html">login</a>
+                <a href="character.html">my character</a>
+                <a href="menu.html">main menu</a>
+            </nav>
+        </header>
+
         <div id="root">
             <main class="login-page">
                 <div class="login-container">
@@ -24,14 +36,15 @@
                         <h1>Divergent Threads</h1>
                     </header>
                     <!--login section-->
-                    <section>
+                    <section class="mb-3">
                         <h2>Login</h2>
-                        <form id="login-form" action="character.html">
-                            <label for="login-username">Username</label>
+                        <form id="login-form" action="character.html"> <!--react will authenticate login info-->
+                            <label for="login-username" class="form-label">Username</label>
                             <input
                             type="text"
                             id="login-username"
                             name="username"
+                            class="form-control"
                             placeholder="enter your username"
                             required
                             >
@@ -45,7 +58,7 @@
                             required
                             >
 
-                            <button type="submit">Login</button>
+                            <button type="submit" class="game-button primary-button">Login</button>
                         </form>
                     </section>
 
@@ -53,11 +66,12 @@
                     <section>
                         <h2>Create an account</h2>
                         <form id="signup-form" action="character.html">
-                            <label for="signup-username">Username</label>
+                            <label for="signup-username" class="form-label">Username</label>
                             <input
                             type="text"
                             id="signup-username"
                             name="username"
+                            class="form-control"
                             placeholder="choose a username"
                             >
 
@@ -75,7 +89,7 @@
                             name="password"
                             placeholder="create a password"
                             >
-                            <button type="submit">
+                            <button type="submit" class="game-button gold-button">
                                 create account
                             </button>
                         </form>
@@ -86,8 +100,6 @@
         </div>
         <!--js will handle form submission-->
         <footer class="menu-footer">
-            <button id="settings-button">settings</button>
-            <button id="logout-button">logout</button>
             <span class="text-reset">Angela Edwards</span>
             <a href="https://github.com/angela-edwards/startup">GitHub</a>
         </footer>
