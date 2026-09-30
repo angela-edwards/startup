@@ -27,15 +27,15 @@
             <a href="settings.html">settings</a>
         </nav>
         <div id="root">
-            <main>
-                <header>
+            <main class="game-menu sunny">
+                <header class="menu-header">
                     <h1>Divergent Threads</h1>
                     <p>Welcome back!</p>
                     <!--user info will come from login-->
                     <p>player: [username]</p>
                 </header>
                 <!--weather section-->
-                <section>
+                <section class="menu-card">
                     <h2>current weather</h2>
                     <!--7timer API will provide weather info
                     js will determine whether weather is sunny, cloud, rainy-->
@@ -45,39 +45,36 @@
                     <!--background of page will change depending on weather-->
                 
                 </section>
-                <!--main story-->
-                <section>
-                    <h2>story</h2>
-                    <p>continue your current story or start a new one.</p>
-                    <button id="main-story-button">
-                        main story
-                    </button>
-                </section>
-                <section>
-                    <h2>character</h2>
-                    <p>view and edit your character</p>
 
-                    <button id="character-button">my character</button>
-                </section>
-                <!--friends/multiplayer-->
-                <section>
-                    <h2>friends</h2>
-                    <p>join friend's game or invite friends to play.</p>
-                    <button id="friends-button">friends</button>
-                </section>
-                <!--multiplayer-->
-                <section>
-                    <h2>multiplayer game</h2>
-                    <p>shared story games will appear here.</p>
-                    <!--websocket will allow players to receive real-time updates-->
-                    <p id="multiplayer-status">connection: [not connected]</p>
-                </section>
-                <!--settings-->
-                <section>
-                    <h2>settings</h2>
-                    <button id="settings-button">settings</button>
-                    <button id="logout-button">logout</button>
-                </section>
+                <div class="menu-content">
+                <!--main story-->
+                    <section class="menu-card">
+                        <h2>story</h2>
+                        <p>continue your current story or start a new one.</p>
+                        <button id="main-story-button" class="menu-button">
+                            main story
+                        </button>
+                    </section>
+                    <section class="menu-card">
+                        <h2>character</h2>
+                        <p>view and edit your character</p>
+
+                        <button id="character-button" class="menu-button">my character</button>
+                    </section>
+                    <!--friends/multiplayer-->
+                    <section class="menu-card">
+                        <h2>friends</h2>
+                        <p>join friend's game or invite friends to play.</p>
+                        <button id="friends-button" class="menu-button">friends</button>
+                    </section>
+                    <!--multiplayer-->
+                    <section class="menu-card">
+                        <h2>multiplayer game</h2>
+                        <p>shared story games will appear here.</p>
+                        <!--websocket will allow players to receive real-time updates-->
+                        <p id="multiplayer-status">connection: [not connected]</p>
+                    </section>
+                </div>
             </main>
         </div>
         <!--js will eventually:
@@ -87,10 +84,10 @@
         change page bg
         handle menu buttons
         connect to websocket-->
-        <footer>
-            <hr />
+        <footer class="menu-footer">
+            <button id="settings-button">settings</button>
+            <button id="logout-button">logout</button>
             <span class="text-reset">Author Name</span>
-            <br />
             <a href="https://github.com/angela-edwards/startup">GitHub</a>
         </footer>
     </body>
