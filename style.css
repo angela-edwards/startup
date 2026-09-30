@@ -55,7 +55,7 @@
     align-items: center;
  }
 
- .site nav a {
+ .site-nav a {
     color: #f5f3ff;
     font-weight: 500;
     text-decoration: none;
@@ -169,7 +169,7 @@
     border: none;
     border-radius: 12px;
     padding: 12px 24px;
-    font-family: "Poppings", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 600;
     transition:
         transform 0.2s ease,
@@ -266,7 +266,7 @@
             rgba(20, 15, 50, 0.25),
             rgba(20, 15, 50, 0.45)
         ),
-        url("");
+        /* url(""); */
 }
 
 .game-menu.rainy {
@@ -275,7 +275,7 @@
             rgba(20, 15, 50, 0.45),
             rgba(20, 15, 50, 0.65),
         ),
-            url("");
+            /* url(""); */
     
 }
 
