@@ -87,3 +87,15 @@ For this deliverable I built out the structure of my application using HTML.
 - [x] **Images** - added placeholder for character image
 - [x] **DB/Login** - Input box and submit button for login and signup.
 - [x] **WebSocket** - text describing where realtime communication will go (friends/multiplayer section).
+
+## 🚀 CSS deliverable
+
+For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
+
+- [x] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
+- [x] **Visually appealing colors and layout. No overflowing elements.**
+- [x] **Use of a CSS framework**
+- [x] **All visual elements styled using CSS**
+- [x] **Responsive to window resizing using flexbox and/or grid display**
+- [x] **Use of a imported font** - used Poppins sans serif
+- [x] **Use of different types of selectors including element, class, ID, and pseudo selectors**
