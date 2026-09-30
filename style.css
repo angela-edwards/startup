@@ -104,3 +104,131 @@
 
     margin-top: 30px;
 }
+
+/* forms */
+
+.form-label {
+    font-weight: 600;
+    color: #30265c;
+}
+
+.form-control, .form-select {
+    border: 2px solid #ddd8ed;
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #8068c9;
+    box-shadow: 0 0 0 0.2rem rgba(128, 104, 201, 0.2);
+}
+
+/* buttons */
+.game-button {
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-family: "Poppings", sans-serif;
+    font-weight: 600;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.game-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+.game-button:active {
+    transform: translateY(0);
+}
+
+.primary-button {
+    background-color: #8068c9;
+    color: white;
+}
+
+.primary-button:hover {
+    background-color: #6d55b5;
+    color: white;
+}
+
+.gold-button {
+    background-color: #d9b85c;
+    color: #292342;
+}
+
+.gold-button:hover {
+    background-color: #c9a746;
+}
+
+/* character creation */
+
+.character-page {
+    min-height: 100vh;
+    padding: 40px 20px;
+    background:
+        linear-gradient(135deg, #17152b, #30265c);
+}
+
+.character-containter {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.96);
+    color: #242039;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.character-container h1 {
+    color: #4b3f8f;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.character-section {
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    background-color: #f5f2fc;
+    border: 1px solid #e4def3;
+}
+
+.character-section h2 {
+    color: #4b3f8f;
+    margin-bottom: 20px;
+}
+
+/* main menu */
+
+.game-menu{
+
+}
+
+/* weather bgs */
+
+.game-menu.sunny {
+
+}
+
+.game-menu.rainy {
+
+}
+
+/* menu header */
+
+.menu-header {
+
+}
+
+.menu-header h1 {
+
+}
+
+.menu-header p {
+    
+}
