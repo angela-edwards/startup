@@ -104,7 +104,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I used JavaScript and React so that the application completely works for a single user. I also added placeholders for future technology.
 
-- [x] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
+- [x] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits): https://simon.webprogramming260.click 
 - [x] **Bundled using Vite**
 - [x] **Components** - I have five components: The app, loading screen, login, character creation, and main menu.
 - [x] **React Router**
