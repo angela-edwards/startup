@@ -1,0 +1,156 @@
+/* main menu */
+
+.game-menu{
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+/* weather bgs */
+
+.game-menu.sunny {
+    background-image:
+        linear-gradient(
+            rgba(20, 15, 50, 0.25),
+            rgba(20, 15, 50, 0.45)
+        ),
+        /* url(""); */
+}
+
+.game-menu.rainy {
+    background-image:
+        linear-gradient(
+            rgba(20, 15, 50, 0.45),
+            rgba(20, 15, 50, 0.65)
+        ),
+            /* url(""); */
+    
+}
+
+/* menu header */
+
+.menu-header {
+    width: 100%;
+    padding: 25px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(20, 16, 45, 0.55);
+    backdrop-filter: blur(8px);
+}
+
+.menu-header h1 {
+    margin: 0;
+    color: #f5d98b;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.menu-header p {
+    margin: 0;
+    color: #f5f3ff;
+}
+
+/* menu content */
+
+.menu-content {
+    width: min(90%, 1000px);
+    margin: auto;
+    padding: 40px 0;
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 25px;
+}
+
+/* menu cards */
+
+.menu-card {
+    padding: 30px;
+    background-color: rgba(25, 20, 55, 0.80);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 18px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+/* pseudo selector */
+
+.menu-card:hover {
+    transform: translateY(-5px);
+    background-color: rgba(35, 28, 75, 0.9);
+}
+
+.menu-card h2 {
+    color: #f5d98b;
+    margin-bottom: 10px;
+}
+
+.menu-card p {
+    color: #ddd8eb;
+}
+
+/* menu buttons */
+
+.menu-button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #8068c9;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.menu-button:hover {
+    background-color: #6d55b5;
+    transform: scale(1.02);
+}
+
+/* weather */
+#weather-status {
+    display: inline-block;
+    padding: 8px 15px;
+    margin-top: 10px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: 500;
+}
+
+/* footer */
+
+.menu-footer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 25px;
+    background-color: rgba(20, 16, 45, 0.55);
+    backdrop-filter: blur(8px);
+}
+
+.menu-footer button {
+    border: none;
+    background: none;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+}
+
+.menu-footer button:hover {
+    color: #f5d98b;
+    text-decoration: underline;
+}
