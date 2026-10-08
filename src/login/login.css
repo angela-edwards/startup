@@ -1,0 +1,97 @@
+ /* loading page */
+ .loading-page {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg, #17152b, #30265c
+        );
+ }
+
+ .loading-content {
+    padding: 40px;
+ }
+
+ .loading-content h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+
+    color: #f5d98b;
+
+    margin-bottom: 15px;
+ }
+
+ .loading-content p {
+    color: #d8d3eb;
+ }
+
+ /* login page */
+
+ .login-page {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #17152b,
+            #30265c
+        );
+ }
+
+.login-container {
+    width: 100%;
+    max-width: 500px;
+
+    padding: 40px;
+
+    background-color: rgba(255, 255, 255, 0.95);
+    
+    color: #242039;
+
+    border-radius: 20px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+.login-container h1 {
+    color: #4b3f8f;
+
+    text-align: center;
+
+    margin-bottom: 10px;
+}
+
+.login-container h2 {
+    color: #30265c;
+
+    margin-top: 30px;
+}
+
+/* forms */
+
+.form-label {
+    font-weight: 600;
+    color: #30265c;
+}
+
+.form-control, .form-select {
+    border: 2px solid #ddd8ed;
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #8068c9;
+    box-shadow: 0 0 0 0.2rem rgba(128, 104, 201, 0.2);
+}
