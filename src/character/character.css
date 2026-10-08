@@ -1,0 +1,38 @@
+/* character creation */
+
+.character-page {
+    min-height: 100vh;
+    padding: 40px 20px;
+    background:
+        linear-gradient(135deg, #17152b, #30265c);
+}
+
+.character-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.96);
+    color: #242039;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.character-container h1 {
+    color: #4b3f8f;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.character-section {
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    background-color: #f5f2fc;
+    border: 1px solid #e4def3;
+}
+
+.character-section h2 {
+    color: #4b3f8f;
+    margin-bottom: 20px;
+}
