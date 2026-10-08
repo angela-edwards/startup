@@ -99,3 +99,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [x] **Responsive to window resizing using flexbox and/or grid display**
 - [x] **Use of a imported font** - used Poppins sans serif
 - [x] **Use of different types of selectors including element, class, ID, and pseudo selectors**
+
+## React Phase 1: Routing deliverable
+
+For this deliverable I used JavaScript and React so that the application completely works for a single user. I also added placeholders for future technology.
+
+- [x] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
+- [x] **Bundled using Vite**
+- [x] **Components** - I have five components: The app, loading screen, login, character creation, and main menu.
+- [x] **React Router**
