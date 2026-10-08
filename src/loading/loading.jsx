@@ -1,5 +1,6 @@
 import React from 'react';
-import './style.css';
+import { Link } from 'react-router-dom';
+import '../style.css';
 
 export function Loading() {
   return (
@@ -7,7 +8,7 @@ export function Loading() {
         <div className="loading-content">
             <h1>Divergent Threads</h1>
 
-            <a href="/login" className="btn primary-button game-button">Begin your story!</a>
+            <Link to="/login" className="btn primary-button game-button">Begin your story!</Link>
         </div>
     </main>
   );
