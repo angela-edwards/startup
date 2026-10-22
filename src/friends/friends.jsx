@@ -69,7 +69,7 @@ export function Friends() {
             };
 
             setMessages(previousMessages => [
-                previousMessages, newMessage
+                ... previousMessages, newMessage
             ]);
         }, 15000);
 
