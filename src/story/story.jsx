@@ -54,7 +54,7 @@ const storyScenes = {
         choices: [
             {
                 text: 'Follow them.',
-                nextSCene: 'secret'
+                nextScene: 'secret'
             },
             {
                 text: 'Investigate the symbol yourself.',
@@ -117,7 +117,7 @@ export function Story() {
         setCurrentScene(nextScene);
 
         if (!visitedScenes.includes(nextScene)) {
-            setVisitedScenes([visitedScenes, nextScene]);
+            setVisitedScenes([ ... visitedScenes, nextScene]);
         }
     }
 
