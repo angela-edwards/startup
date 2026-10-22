@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
@@ -7,6 +8,8 @@ import { Login } from './login/login';
 import { Character } from './character/character';
 import { Menu } from './menu/menu';
 import { Loading } from './loading/loading';
+// import { Story } from './story/story';
+// import { Friends } from './friends/friends';
 
 export default function App() {
     return (
