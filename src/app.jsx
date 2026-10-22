@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
@@ -21,7 +20,7 @@ export default function App() {
                     </div>
 
                     <nav className="site-nav">
-                        <NavLink to="/">home</NavLink>
+                        <NavLink to="/" end>home</NavLink>
                         <NavLink to="/login">login</NavLink>
                         <NavLink to="/character">character</NavLink>
                         <NavLink to="/menu">main menu</NavLink>
@@ -34,6 +33,10 @@ export default function App() {
                     <Route path='/character' element={<Character />} />
                     <Route path='/menu' element={<Menu />} />
                     <Route path='*' element={<NotFound />} />
+                    {/*
+                    <Route path='/story' element={<Story />}/>
+                    <Route path='/friends' element={<Friends />}/>
+                    */}
                 </Routes>
 
                 <footer className="menu-footer">
