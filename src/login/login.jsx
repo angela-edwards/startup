@@ -1,18 +1,65 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './login.css';
 import '../style.css';
 
 export function Login() {
+  const navigate = useNavigate();
+  const [message, setMessage] = useState('');
+  function handleLogin(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const username = formData.get('username');
+    const password = formData.get('password');
+
+    if (!username.trim() || !password) {
+        setMessage('Please enter your username and password.');
+        return;
+    }
+    
+    // temp demo login
+    localStorage.setItem('userName', username.trim());
+
+    navigate('/character');
+  }
+
+  // account creation
+  function handleSignup(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const username = formData.get('username');
+    const email = formData.get('email');
+    const password = formData.get('password');
+
+    if (!username.trim() || !email.trim() || !password) {
+        setMessage('Please fill in all the fields.');
+        return;
+    }
+
+    // save basic profile info, not password
+    const account = {
+        username: username.trim(),
+        email: email.trim()
+    };
+
+    localStorage.setItem('account', JSON.stringify(account));
+    localStorage.setItem('userName', username.trim());
+
+    navigate('/character');
+  }
+
   return (
     <main className="login-page">
         <div className="login-container">
             <header>
                 <h1>Divergent Threads</h1>
             </header>
+            {message && <p role='alert'>{message}</p>}
             <section className="mb-3">
                 <h2>Login</h2>
-                <form id="login-form">
+                <form id="login-form" onSubmit={handleLogin}>
                     <label htmlFor="login-username" className="form-label">Username</label>
                     <input
                         type="text"
@@ -39,7 +86,7 @@ export function Login() {
 
             <section>
                 <h2>Create an account</h2>
-                <form id="signup-form">
+                <form id="signup-form" onSubmit={handleSignup}>
                     <label htmlFor="signup-username" className="form-label">Username</label>
                     <input
                         type="text"
@@ -47,6 +94,7 @@ export function Login() {
                         name="username"
                         className="form-control"
                         placeholder="choose a username"
+                        required
                     />
 
                     <label htmlFor="signup-email" className="form-label">Email</label>
@@ -56,6 +104,7 @@ export function Login() {
                         name="email"
                         className="form-control"
                         placeholder="enter your email"
+                        required
                     />
                     <label htmlFor="signup-password" className="form-label">Password</label>
                     <input
@@ -64,11 +113,11 @@ export function Login() {
                         name="password"
                         className="form-control"
                         placeholder="create a password"
+                        required
                     />
                     <button type="submit" className="game-button gold-button">
                         create account
                     </button>
-                    <Link to="/character" className="btn primary-button game-button">continue!</Link>
                 </form>
             </section>
         </div>
