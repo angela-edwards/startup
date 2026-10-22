@@ -90,7 +90,7 @@ export function Friends() {
         };
 
         setMessages(previousMessages => [
-            previousMessages, newMessage
+            ... previousMessages, newMessage
         ]);
         
         setMessageInput('');
