@@ -115,4 +115,4 @@ For this deliverable I used JavaScript and React so that the application complet
 
 - [x] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
 - [x] **All functionality implemented or mocked out**
-- [x] **Hooks** - Used `useState` and `useEffect` on the login, character, and menu.
+- [x] **Hooks** - Used `useState` and `useEffect` on the login, character, story, friends, and menu.
