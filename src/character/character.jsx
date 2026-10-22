@@ -1,9 +1,39 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../style.css';
 import './character.css';
 
 export function Character() {
+  const navigate = useNavigate();
+
+  //store values
+  const [characterName, setCharacterName] = useState('');
+  const [personality, setPersonality] = useState('');
+  const [strength, setStrength] = useState(5);
+  const [intelligence, setIntelligence] = useState(5);
+  const [charisma, setCharisma] = useState(5);
+  const [message, setMessage] = useState('');
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    if (characterName.trim() === '' || personality === '') {
+        setMessage('Please enter a name and select personality.');
+        return;
+    }
+
+    const character = {
+        name: characterName.trim(),
+        personality: personality,
+        strength: Number(strength),
+        intelligence: Number(intelligence),
+        charisma: Number(charisma)
+    };
+
+    localStorage.setItem('character', JSON.stringify(character));
+
+    navigate('/menu');
+  }
+
   return (
     <main className="character-page">
         <div className="character-container">
@@ -12,7 +42,7 @@ export function Character() {
                 <p>design your protagonist.</p>
             </header>
             <img src="blank-profile-picture-973460_1280.jpg" width="400" height="400"/>
-            <form id="character-form">
+            <form id="character-form" onSubmit={handleSubmit}>
                 <section className="character-section">
                     <label htmlFor="character-name">character name</label>
                     <input
@@ -20,10 +50,19 @@ export function Character() {
                         id="character-name"
                         name="characterName"
                         placeholder="enter character name"
+                        value = {characterName}
+                        onChange={(event) => setCharacterName(event.target.value)}
+                        required
                     />
 
                     <label htmlFor="character-personality">personality</label>
-                    <select id="character-personality" name="personality">
+                    <select 
+                        id="character-personality" 
+                        name="personality"
+                        value = {personality}
+                        onChange={(event) => setPersonality(event.target.value)}
+                        required
+                    >
                         <option value="">select a personality</option>
                         <option value="brave">brave</option>
                         <option value="kind">kind</option>
@@ -42,6 +81,9 @@ export function Character() {
                         name="strength"
                         min="1"
                         max="10"
+                        value = {strength}
+                        onChange={(event) => setStrength(event.target.value)}
+                        required
                     />
 
                     <label htmlFor="intelligence">intelligence</label>
@@ -51,6 +93,9 @@ export function Character() {
                         name="intelligence"
                         min="1"
                         max="10"
+                        value = {intelligence}
+                        onChange={(event) => setIntelligence(event.target.value)}
+                        required
                     />
 
                     <label htmlFor="charisma">charisma</label>
@@ -60,11 +105,15 @@ export function Character() {
                         name="charisma"
                         min="1"
                         max="10"
+                        value = {charisma}
+                        onChange={(event) => setCharisma(event.target.value)}
+                        required
                     />
                 </section>
 
-                <button type="submit">create character!</button>
-                <Link to="/menu" className="btn primary-button game-button">continue!</Link>
+                {message && <p role='alert'>{message}</p>}
+
+                <button type="submit" className="btn primary-button game-button">create character!</button>
             </form>
         </div>
     </main>
