@@ -7,8 +7,8 @@ import { Login } from './login/login';
 import { Character } from './character/character';
 import { Menu } from './menu/menu';
 import { Loading } from './loading/loading';
-// import { Story } from './story/story';
-// import { Friends } from './friends/friends';
+import { Story } from './story/story';
+import { Friends } from './friends/friends';
 
 export default function App() {
     return (
@@ -32,11 +32,10 @@ export default function App() {
                     <Route path='/login' element={<Login />} />
                     <Route path='/character' element={<Character />} />
                     <Route path='/menu' element={<Menu />} />
+                    <Route path='/story' element={<Story />} />
+                    <Route path='/friends' element={<Friends />} />
                     <Route path='*' element={<NotFound />} />
-                    {/*
-                    <Route path='/story' element={<Story />}/>
-                    <Route path='/friends' element={<Friends />}/>
-                    */}
+                    
                 </Routes>
 
                 <footer className="menu-footer">
