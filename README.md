@@ -114,5 +114,5 @@ For this deliverable I used JavaScript and React so that the application complet
 For this deliverable I used JavaScript and React so that the application completely works for a single user. I also added placeholders for future technology.
 
 - [x] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
-- [x] **All functionality implemented or mocked out** - Everything is working! Votes stored in local storage. `setInterval` used to simulate peer voting.
-- [x] **Hooks** - Used `useState` and `useEffect` on the voter view.
+- [x] **All functionality implemented or mocked out**
+- [x] **Hooks** - Used `useState` and `useEffect` on the login, character, and menu.
