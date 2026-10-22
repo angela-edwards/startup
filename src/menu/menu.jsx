@@ -40,7 +40,7 @@ export function Menu() {
   }
 
   return (
-    <main className={'game-menu ${weatherClass}'}>
+    <main className={`game-menu ${weatherClass}`}>
         <header className="menu-header">
             <h1>Divergent Threads</h1>
             <p>Welcome back, {username}!</p>

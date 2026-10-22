@@ -112,7 +112,7 @@ export function Friends() {
                         {friends.map(friend => (
                             <button
                                 key={friend.id}
-                                className={'list-group-item list-group-item-action' + (selectedFriend.id === friend.id ? 'active' : '')}
+                                className={'list-group-item list-group-item-action' + (selectedFriend.id === friend.id ? ' active ' : '')}
                                 onClick={() => setSelectedFriend(friend)}
                             >
                                 {friend.name}
