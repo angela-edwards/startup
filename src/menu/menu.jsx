@@ -40,7 +40,7 @@ export function Menu() {
   }
 
   return (
-    <main className={`game-menu $(weatherClass}`}>
+    <main className={`game-menu $(weatherClass)`}>
         <header className="menu-header">
             <h1>Divergent Threads</h1>
             <p>Welcome back, {username}!</p>
@@ -60,7 +60,7 @@ export function Menu() {
             <section className="menu-card">
                 <h2>story</h2>
                 <p>continue your current story or start a new one.</p>
-                <button className="menu-button" onclick={() => navigate('/story')}>
+                <button className="menu-button" onClick={() => navigate('/story')}>
                     main story
                 </button>
             </section>
