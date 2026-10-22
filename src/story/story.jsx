@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import './story.css';
-import '../style.css';
+import './story.css';
 
 const storyScenes = {
     beginning: {
@@ -88,7 +87,7 @@ const storyScenes = {
 
 export function Story() {
     //load saved scene or start at beginning
-    const [currentState, setCurrentScene] = useState(() => {
+    const [currentScene, setCurrentScene] = useState(() => {
         const savedScene = localStorage.getItem('dtCurrentScene');
 
         if (savedScene && storyScenes[savedScene]) {
@@ -99,7 +98,7 @@ export function Story() {
     });
 
     //keeps track of scenes
-    const [visitedSCenes, setVisitedSCenes] = useState(() => {
+    const [visitedScenes, setVisitedScenes] = useState(() => {
         const savedScenes = localStorage.getItem('dtVistedScenes');
 
         if (savedScenes) {
@@ -110,7 +109,7 @@ export function Story() {
 
     useEffect(() => {
         localStorage.setItem('dtCurrentScene', currentScene);
-        localStorage.setItem('dtVisitedScenes', JSON.stringify(visistedScenes));
+        localStorage.setItem('dtVisitedScenes', JSON.stringify(visitedScenes));
     }, [currentScene, visitedScenes]);
 
     //move to scene selected by player
@@ -118,14 +117,14 @@ export function Story() {
         setCurrentScene(nextScene);
 
         if (!visitedScenes.includes(nextScene)) {
-            setVisistedScenes([...visitedScenes, nextScene]);
+            setVisitedScenes([visitedScenes, nextScene]);
         }
     }
 
     //restart
     function restartStory() {
         setCurrentScene('beginning');
-        setVisitedSCenes(['beginning']);
+        setVisitedScenes(['beginning']);
     }
 
     const scene = storyScenes[currentScene];
