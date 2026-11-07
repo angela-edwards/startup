@@ -116,3 +116,16 @@ For this deliverable I used JavaScript and React so that the application complet
 - [x] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
 - [x] **All functionality implemented or mocked out**
 - [x] **Hooks** - Used `useState` and `useEffect` on the login, character, story, friends, and menu.
+
+## Service deliverable
+
+For this deliverable I added backend endpoints that receives votes and returns the voting totals.
+
+- [x] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
+- [x] **Node.js/Express HTTP service** - done!
+- [x] **Static middleware for frontend** - done!
+- [x] **Calls to third party endpoints** - done: uses 7Timer API
+- [x] **Backend service endpoints** - placeholders for login that stores the current user on the server
+- [x] **Frontend calls service endpoints** - I did this using the fetch function
+- [x] **Supports registration, login, logout, and restricted endpoint** - Login only exists on the frontend.
+- [x] **Uses BCrypt to hash passwords** - found in index.js
