@@ -19,14 +19,68 @@ export function Menu() {
     }
 
     // pretend weather data, later replace with API
-    const mockWeather = {
-        condition: 'Sunny',
-        description: 'Sunny skies',
-        background: 'sunny'
-    };
+    async function getWeather() {
+        try {
+            const url = 'https://www.7timer.info/bin/api.pl?lon=-111.6585&lat=40.2338&product=civillight&output=json&unit=metric';
 
-    setWeather(mockWeather.description);
-    setWeatherClass(mockWeather.background);
+            const response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error('weather request failed');
+            }
+
+            const data = await response.json();
+
+            const forecast = data.dataseries[0];
+
+            const condition = forecast.weather.toLowerCase();
+
+            if (condition.includes('ts')) {
+                setWeather('Thunderstorms');
+                setWeatherClass('rainy');
+            }
+            else if (condition.includes('rainsnow')) {
+                setWeather('Mixed precipitation');
+                setWeatherClass('snowy');
+            }
+            else if (condition.includes('snow')) {
+                setWeather('Snowy');
+                setWeatherClass('snowy');
+            }
+            else if (
+                condition.includes('rain') ||
+                condition.includes('shower')
+            ) {
+                setWeather('Rainy');
+                setWeatherClass('rainy');
+            }
+            else if (condition.includes('pcloudy')) {
+                setWeather('Party cloudy');
+                setWeatherClass('cloudy');
+            }
+            else if (
+                condition.includes('cloudy') ||
+                condition.includes('humid')
+            ) {
+                setWeather('Cloudy');
+                setWeatherClass('cloudy');
+            }
+            else if (condition.includes('clear')) {
+                setWeather('Sunny');
+                setWeatherClass('sunny');
+            }
+            else {
+                setWeather('Weather information unavailable');
+                setWeatherClass('cloudy');
+            }
+        } catch (error) {
+            console.error('Error getting weather:', error);
+            setWeather('Weather unavailable');
+            setWeatherClass('cloudy');
+        }
+    }
+
+    getWeather();
 
     setConnectionStatus('demo mode');
   }, []);
