@@ -21,9 +21,7 @@ export function Menu() {
     // pretend weather data, later replace with API
     async function getWeather() {
         try {
-            const url = 'https://www.7timer.info/bin/api.pl?lon=-111.6585&lat=40.2338&product=civillight&output=json&unit=metric';
-
-            const response = await fetch(url);
+            const response = await fetch('/api/weather');
 
             if (!response.ok) {
                 throw new Error('weather request failed');
@@ -31,9 +29,7 @@ export function Menu() {
 
             const data = await response.json();
 
-            const forecast = data.dataseries[0];
-
-            const condition = forecast.weather.toLowerCase();
+            const condition = data.weather.toLowerCase();
 
             if (condition.includes('ts')) {
                 setWeather('Thunderstorms');
@@ -105,7 +101,7 @@ export function Menu() {
             <h2>current weather</h2>
     
             <p id="weather-status">
-                weather: {weather}
+                Provo, Utah: {weather}
             </p>
         
         </section>
