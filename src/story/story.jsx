@@ -50,7 +50,7 @@ const storyScenes = {
 
     question: {
         title: 'Uncomfortable Answers',
-        text: 'to be written',
+        text: 'You poke the girl next to you. She turns to you with a wide smile, the corner of her mouth trembling. She introduces herself as Amber, president of the student council. When you ask about the door, her expression flashes, and you barely notice the fear in her eyes.',
         choices: [
             {
                 text: 'Follow them.',
