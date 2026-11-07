@@ -8,7 +8,14 @@ const authCookieName = 'token';
 
 // The scores and users are saved in memory and disappear whenever the service is restarted.
 let users = [];
-let scores = [];
+
+const validPersonalities = [
+    'brave',
+    'kind',
+    'clever',
+    'confident',
+    'quiet'
+];
 
 // The service port. In production the front-end code is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -77,6 +84,12 @@ apiRouter.post('/auth/create', async (req, res) => {
   if (await findUser('email', email.trim())) {
     return res.status(409).send({
         msg: 'email already exists'
+    });
+  }
+
+  if (password.length < 8) {
+    return res.status(400).send({
+        msg: 'password must be at least 8 characters'
     });
   }
 
