@@ -30,7 +30,24 @@
             rgba(20, 15, 50, 0.65)
         ),
             /* url(""); */
-    
+}
+
+.game-menu.cloudy {
+    background-image:
+        linear-gradient(
+            rgba(20, 15, 50, 0.45),
+            rgba(20, 15, 50, 0.65)
+        ),
+            /* url(""); */
+}
+
+.game-menu.snowy {
+    background-image:
+        linear-gradient(
+            rgba(20, 15, 50, 0.45),
+            rgba(20, 15, 50, 0.65)
+        ),
+            /* url(""); */
 }
 
 /* menu header */
