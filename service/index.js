@@ -26,6 +26,38 @@ app.use(express.static('public'));
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
+// weather info from 7Timer
+apiRouter.get('/weather', async (req, res) => {
+    try {
+        const url ='https://www.7timer.info/bin/api.pl?lon=-111.6585&lat=40.2338&product=civillight&output=json&unit=metric';
+
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error('7Timer request failed');
+        }
+
+        const data = await response.json();
+
+        if (!data.dataseries || data.dataseries.length == 0) {
+            throw new Error('No weather data available');
+        }
+
+        const forecast = data.dataseries[0];
+
+        res.send({
+            weather: forecast.weather,
+            date: forecast.date
+        });
+    } catch (error) {
+        console.error('Weather API error:', error);
+
+        res.status(500).send({
+            msg: 'unable to retrieve weather information'
+        });
+    }
+});
+
 // CreateAuth a new user
 apiRouter.post('/auth/create', async (req, res) => {
   const { username, email, password } = req.body;
@@ -142,12 +174,6 @@ apiRouter.get('/characters/me', verifyAuth, (req, res) => {
     res.send(req.user.character);
 });
 
-// SubmitScore
-apiRouter.post('/score', verifyAuth, (req, res) => {
-  scores = updateScores(req.body);
-  res.send(scores);
-});
-
 // Default error handler
 app.use(function (err, req, res, next) {
   res.status(500).send({ type: err.name, message: err.message });
@@ -157,28 +183,6 @@ app.use(function (err, req, res, next) {
 app.use((_req, res) => {
   res.sendFile('index.html', { root: 'public' });
 });
-
-// updateScores considers a new score for inclusion in the high scores.
-function updateScores(newScore) {
-  let found = false;
-  for (const [i, prevScore] of scores.entries()) {
-    if (newScore.score > prevScore.score) {
-      scores.splice(i, 0, newScore);
-      found = true;
-      break;
-    }
-  }
-
-  if (!found) {
-    scores.push(newScore);
-  }
-
-  if (scores.length > 10) {
-    scores.length = 10;
-  }
-
-  return scores;
-}
 
 async function createUser(username, email, password) {
   const passwordHash = await bcrypt.hash(password, 10);
