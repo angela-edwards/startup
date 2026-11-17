@@ -129,3 +129,11 @@ For this deliverable I added backend endpoints that receives votes and returns t
 - [x] **Frontend calls service endpoints** - I did this using the fetch function
 - [x] **Supports registration, login, logout, and restricted endpoint**
 - [x] **Uses BCrypt to hash passwords** - found in index.js
+
+## DB/Login deliverable
+
+For this deliverable I associate the votes with the logged in user. I stored the votes in the database.
+
+- [x] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
+- [x] **Stores data in MongoDB** - Stores both user and their characters. See database.js
+- [x] **Use MongoDB to store credentials** - Stores user and credentials. See database.js
