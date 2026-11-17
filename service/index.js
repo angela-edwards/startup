@@ -3,11 +3,9 @@ const bcrypt = require('bcryptjs');
 const express = require('express');
 const uuid = require('uuid');
 const app = express();
+const database = require('./database');
 
 const authCookieName = 'token';
-
-// The scores and users are saved in memory and disappear whenever the service is restarted.
-let users = [];
 
 const validPersonalities = [
     'brave',
@@ -75,13 +73,13 @@ apiRouter.post('/auth/create', async (req, res) => {
     });
   }
 
-  if (await findUser('username', username.trim())) {
+  if (await database.getUserByUsername(username.trim())) {
     return res.status(409).send({
         msg: 'username already exists'
     });
   }
 
-  if (await findUser('email', email.trim())) {
+  if (await database.getUser(email.trim())) {
     return res.status(409).send({
         msg: 'email already exists'
     });
@@ -109,10 +107,11 @@ apiRouter.post('/auth/create', async (req, res) => {
 
 // GetAuth login an existing user
 apiRouter.post('/auth/login', async (req, res) => {
-  const user = await findUser('email', req.body.email);
+  const user = await database.getUser(req.body.email);
   if (user) {
     if (await bcrypt.compare(req.body.password, user.password)) {
       user.token = uuid.v4();
+      await database.updateUser(user);
       setAuthCookie(res, user.token);
       res.send({ username: user.username, email: user.email });
       return;
@@ -123,9 +122,11 @@ apiRouter.post('/auth/login', async (req, res) => {
 
 // DeleteAuth logout a user
 apiRouter.delete('/auth/logout', async (req, res) => {
-  const user = await findUser('token', req.cookies[authCookieName]);
+  const user = await database.getUserByToken(
+    req.cookies[authCookieName]
+  );
   if (user) {
-    delete user.token;
+    await database.updateUserRemoveAuth(user);
   }
   res.clearCookie(authCookieName);
   res.status(204).end();
@@ -133,8 +134,9 @@ apiRouter.delete('/auth/logout', async (req, res) => {
 
 // Middleware to verify that the user is authorized to call an endpoint
 const verifyAuth = async (req, res, next) => {
-  const user = await findUser('token', req.cookies[authCookieName]);
-  
+  const user = await database.getUserByToken(
+    req.cookies[authCookieName]
+  );
   if (user) {
     req.user = user;
     next();
@@ -143,7 +145,7 @@ const verifyAuth = async (req, res, next) => {
   }
 };
 
-apiRouter.post('/characters', verifyAuth, (req, res) => {
+apiRouter.post('/characters', verifyAuth, async (req, res) => {
     const character = req.body;
 
     if (
@@ -172,6 +174,8 @@ apiRouter.post('/characters', verifyAuth, (req, res) => {
         intelligence: Number(character.intelligence),
         charisma: Number(character.charisma)
     };
+
+    await database.updateUser(req.user);
 
     res.send(req.user.character);
 });
@@ -209,15 +213,9 @@ async function createUser(username, email, password) {
     character: null
   };
 
-  users.push(user);
+  await database.addUser(user);
 
   return user;
-}
-
-async function findUser(field, value) {
-  if (!value) return null;
-
-  return users.find((u) => u[field] === value);
 }
 
 // setAuthCookie in the HTTP response
@@ -233,3 +231,17 @@ function setAuthCookie(res, authToken) {
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+// to do: friends
+// search for users, send friend request, accept/decline request
+// retrieve friends list, remove friend
+// websocket notif for friend requests
+// websocket online/offline status
+
+// to do: multiplayer
+// create, join, leave, retrieve multiplayer room
+// track players in each room
+// websocket connection for multiplayer
+// synchronize player actions
+// synchronise voting and game progress
+// handle player disconnects

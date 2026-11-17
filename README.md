@@ -127,5 +127,5 @@ For this deliverable I added backend endpoints that receives votes and returns t
 - [x] **Calls to third party endpoints** - done: uses 7Timer API
 - [x] **Backend service endpoints** - placeholders for login that stores the current user on the server
 - [x] **Frontend calls service endpoints** - I did this using the fetch function
-- [x] **Supports registration, login, logout, and restricted endpoint** - Login only exists on the frontend.
+- [x] **Supports registration, login, logout, and restricted endpoint**
 - [x] **Uses BCrypt to hash passwords** - found in index.js

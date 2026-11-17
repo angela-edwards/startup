@@ -6,26 +6,57 @@ import '../style.css';
 export function Login() {
   const navigate = useNavigate();
   const [message, setMessage] = useState('');
-  function handleLogin(event) {
+  
+  async function handleLogin(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
-    const username = formData.get('username');
+    const email = formData.get('email');
     const password = formData.get('password');
 
-    if (!username.trim() || !password) {
-        setMessage('Please enter your username and password.');
+    if (!email.trim() || !password) {
+        setMessage('Please enter your email and password.');
         return;
     }
     
-    // temp demo login
-    localStorage.setItem('userName', username.trim());
+    try {
+        const response = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            body: JSON.stringify({
+                email: email.trim(),
+                password: password
+            })
+        })
+        if (!response.ok) {
+            setMessage('invalid email or password.');
+            return ;
+        }
+        const user = await response.json();
 
-    navigate('/character');
+        localStorage.setItem('userName', user.username);
+
+        const characterResponse = await fetch('/api/characters/me', {
+            credentials: 'include'
+        });
+
+        if (characterResponse.ok) {
+            navigate('/menu');
+        } else if (characterResponse.status == 404) {
+            navigate('/character');
+        } else {
+            setMessage('unable to retrieve your character.');
+        }
+    } catch (error) {
+        console.error('Login error:', error);
+        setMessage('unable to connect to the server.');
+    }
   }
-
   // account creation
-  function handleSignup(event) {
+  async function handleSignup(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
@@ -38,16 +69,41 @@ export function Login() {
         return;
     }
 
-    // save basic profile info, not password
-    const account = {
-        username: username.trim(),
-        email: email.trim()
-    };
+    try {
+        const response = await fetch('/api/auth/create', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            body: JSON.stringify({
+                username: username.trim(),
+                email: email.trim(),
+                password: password
+            })
+        });
 
-    localStorage.setItem('account', JSON.stringify(account));
-    localStorage.setItem('userName', username.trim());
+        const result = await response.json();
 
-    navigate('/character');
+        if (!response.ok) {
+            setMessage(result.msg || 'unable to create account.');
+            return;
+        }
+
+        localStorage.setItem('userName', result.username);
+
+        const account = {
+            username: result.username,
+            email: result.email
+        };
+
+        localStorage.setItem('account', JSON.stringify(account));
+
+        navigate('/character');
+    } catch (error) {
+        console.error('Signup error:', error);
+        setMessage('unable to connect to the server.');
+    }
   }
 
   return (
@@ -60,13 +116,13 @@ export function Login() {
             <section className="mb-3">
                 <h2>Login</h2>
                 <form id="login-form" onSubmit={handleLogin}>
-                    <label htmlFor="login-username" className="form-label">Username</label>
+                    <label htmlFor="login-email" className="form-label">Email</label>
                     <input
                         type="text"
-                        id="login-username"
-                        name="username"
+                        id="login-email"
+                        name="email"
                         className="form-control"
-                        placeholder="enter your username"
+                        placeholder="enter your email"
                         required
                     />
 

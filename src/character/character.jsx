@@ -14,7 +14,7 @@ export function Character() {
   const [charisma, setCharisma] = useState(5);
   const [message, setMessage] = useState('');
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     if (characterName.trim() === '' || personality === '') {
         setMessage('Please enter a name and select personality.');
@@ -29,9 +29,30 @@ export function Character() {
         charisma: Number(charisma)
     };
 
-    localStorage.setItem('character', JSON.stringify(character));
+    try {
+        const response = await fetch('/api/characters', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            body: JSON.stringify(character)
+        });
 
-    navigate('/menu');
+        const result = await response.json();
+
+        if (!response.ok) {
+            setMessage(result.msg || 'unable to save character');
+            return;
+        }
+
+        localStorage.setItem('character', JSON.stringify(result));
+
+        navigate('/menu');
+    } catch (error) {
+        console.error('character creation error:', error);
+        setMessage('unable to connect to the server.');
+    }
   }
 
   return (
